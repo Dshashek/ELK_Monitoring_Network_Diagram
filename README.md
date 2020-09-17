@@ -28,7 +28,6 @@ Integrating an ELK server allows users to easily monitor the vulnerable VMs for 
 - _TODO: What does Metricbeat record?_
 
 The configuration details of each machine may be found below.
-_Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdown_tables) to add/remove values from the table_.
 
 | Name     | Function | IP Address | Operating System |
 |----------|----------|------------|------------------|
@@ -36,7 +35,7 @@ _Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdow
 | Web-1    | Webserver| 10.0.0.8   | Ubuntu 18.04-LTS |
 | Web-2    | Webserver| 10.0.0.9   | Ubuntu 18.04-LTS |
 | Web-3    | Webserver| 10.0.0.10  | Ubuntu 18.04-LTS |
-| ELK      | Webserver| 10.1.0.4   | Ubuntu 18.04-LTS |
+| ELK      | Monitoring| 10.1.0.4   | Ubuntu 18.04-LTS |
 
 ### Access Policies
 
