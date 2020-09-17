@@ -2,12 +2,13 @@
 
 The files in this repository were used to configure the network depicted below.
 
-<img src="https://github.com/Dshashek/ELK_Monitoring_Network_Diagram/blob/master/Images/network_diagram.png">
+<img src="https://github.com/Dshashek/ELK_Monitoring_Network_Diagram/blob/master/images/network_diagram.png">
 
-These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the _____ file may be used to install only certain pieces of it, such as Filebeat.
+The YAML
+The .yml files in the yml directory were used for an ELK deployment on Azure.  The initial setup of machines, network security groups, the load balancer, and virtual networks were set up through the Azure GUI on an Azure trail account.
 
 This document contains the following details:
-- Description of the Topologu
+- Description of the Topology
 - Access Policies
 - ELK Configuration
   - Beats in Use
@@ -19,7 +20,7 @@ This document contains the following details:
 
 The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the D*mn Vulnerable Web Application.
 
-Load balancing ensures that the application will be highly _____, in addition to restricting _____ to the network.
+Load balancing ensures that the application will be highly available, in addition to restricting _____ to the network.
 - _TODO: What aspect of security do load balancers protect? What is the advantage of a jump box?_
 
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the _____ and system _____.
@@ -31,10 +32,11 @@ _Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdow
 
 | Name     | Function | IP Address | Operating System |
 |----------|----------|------------|------------------|
-| Jump Box | Gateway  | 10.0.0.1   | Linux            |
-| TODO     |          |            |                  |
-| TODO     |          |            |                  |
-| TODO     |          |            |                  |
+| Jump Box | Gateway  | 10.0.0.4   | Ubuntu 18.04-LTS |
+| Web-1    | Webserver| 10.0.0.8   | Ubuntu 18.04-LTS |
+| Web-2    | Webserver| 10.0.0.9   | Ubuntu 18.04-LTS |
+| Web-3    | Webserver| 10.0.0.10  | Ubuntu 18.04-LTS |
+| ELK      | Webserver| 10.1.0.4   | Ubuntu 18.04-LTS |
 
 ### Access Policies
 
