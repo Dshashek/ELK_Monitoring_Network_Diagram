@@ -1,0 +1,46 @@
+---
+
+- name: Config Web VM with Docker
+  hosts: elk
+  become: true
+  tasks:
+
+    - name: Uninstall apache2
+      apt:
+        name: apache2
+        state: absent
+
+    - name: docker.io
+      apt:
+        update_cache: yes
+        name: docker.io
+        state: present
+
+    - name: Install pip3
+      apt:
+        name: python3-pip
+        state: present
+
+    - name: Install Python Docker Module
+      pip:
+        name: docker
+        state: present
+
+    - name: Enable docker service
+      systemd:
+        name: docker
+        enabled: yes
+
+    - name: Increase virtual memory
+      command: sysctl -w vm.max_map_count=262144
+
+    - name: Download and launch a docker web container
+      docker_container:
+        name: elk
+        image: sebp/elk:761
+        state: started
+        restart_policy: always
+        published_ports: 5601:5601, 9200:9200, 5044:5044
+
+
+
