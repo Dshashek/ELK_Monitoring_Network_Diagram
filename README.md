@@ -66,10 +66,8 @@ The playbook implements the following tasks:
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
-**Note**: The following image link needs to be updated. Replace `docker_ps_output.png` with the name of your screenshot image file.  
+<img src="https://github.com/Dshashek/ELK_Monitoring_Network_Diagram/blob/master/Images/docker_ps.png">
 
-
-![TODO: Update the path with the name of your screenshot of docker ps output](Images/docker_ps_output.png)
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
@@ -88,10 +86,13 @@ These Beats allow us to collect the following information from each machine:
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
+- Create an SSH key in the ansible container and use it to update the SSH keys in Azure for the Web VMs and the Elk machine.
+- SSH into each of the web machines from the control node and add the IP address.
+- Modify the remote_user in ansible.cfg file in /etc/ansible on the jumpbox to the user name used for the webservers and elk machine.
+- Update the Hosts file with two groups, one for elk, one for the webservers
 - Download the playbooks for the webservers, elk, elastic beat, and metric beat onto your ansible container.
-- Update the configuration files to include 
-- Update the _____ file to include...
-- Run the playbook, and navigate to ____ to check that the installation worked as expected.
+- Place the beats config files in /etc/ansible/files and update the beats configuration files to include the IP address of the Elk Server 
+- Run the playbooks, and navigate to <elk machine ip>:5601/app/kibana to check that the installation worked as expected.
 
 _TODO: Answer the following questions to fill in the blanks:_
 - _Which file is the playbook? Where do you copy it?_
