@@ -50,9 +50,8 @@ A summary of the access policies in place can be found in the table below.
 
 | Name     | Publicly Accessible | Allowed IP Addresses |
 |----------|---------------------|----------------------|
-| Jump Box | Yes              | home ip   |
-| Elk         |                     |                      |
-|          |                     |                      |
+| Red Team NSG | No              | home ip   |
+| Elk         | No                    | home ip/10.0.0.4                     |
 
 ### Elk Configuration
 
