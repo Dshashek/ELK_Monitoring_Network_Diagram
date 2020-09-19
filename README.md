@@ -51,16 +51,18 @@ A summary of the access policies in place can be found in the table below.
 | Name     | Publicly Accessible | Allowed IP Addresses |
 |----------|---------------------|----------------------|
 | Red Team NSG | No              | home ip   |
-| Elk         | No                    | home ip/10.0.0.4                     |
+| Elk NSG      | No                    | home ip/10.0.0.4                     |
 
 ### Elk Configuration
 
 Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because we can ensure that all systems are set up consistently, and easily configure new machines in the future by making modifications only to the hosts configuration file in the ansible container.
 
 The playbook implements the following tasks:
-- _TODO: In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc._
-- ...
-- ...
+- Uninstall apache2 so it does not conflict with docker
+- Install pip3 package manager to download python packages
+- Install Python docker module
+- Start Docker service, increase virtual memory on elk machine
+- Download and launch the elk docker contianer
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
@@ -86,7 +88,8 @@ These Beats allow us to collect the following information from each machine:
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
-- Copy the _____ file to _____.
+- Download the playbooks for the webservers, elk, elastic beat, and metric beat onto your ansible container.
+- Update the configuration files to include 
 - Update the _____ file to include...
 - Run the playbook, and navigate to ____ to check that the installation worked as expected.
 
