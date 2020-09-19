@@ -61,8 +61,8 @@ The playbook implements the following tasks:
 - Uninstall apache2 so it does not conflict with docker
 - Install pip3 package manager to download python packages
 - Install Python docker module
-- Start Docker service, increase virtual memory on elk machine
-- Download and launch the elk docker contianer
+- Start Docker service, increase virtual memory on ELK machine
+- Download and launch the ELK docker contianer
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
@@ -82,23 +82,21 @@ metricbeat
 filebeat
 
 These Beats allow us to collect the following information from each machine:
-- _TODO: In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see. E.g., `Winlogbeat` collects Windows logs, which we use to track user logon events, etc._
+
+Filebeat will allow you to specify specific files to monitor and will log changes to those files.  This could be used to collect new lines from log files or to monitor changes to important system files like /etc/shadow.
+
+Metricbeat will allow you to specify specific information about services and programs running on the monitored machines.  For instance, you could use filebeat to monitor the CPU load, or the available drive space on monitored machines.
 
 ### Using the Playbook
-In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
+In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned and the machinese are set up properly in Azure: 
 
 SSH into the control node and follow the steps below:
-- Create an SSH key in the ansible container and use it to update the SSH keys in Azure for the Web VMs and the Elk machine.
-- SSH into each of the web machines from the control node and add the IP address.
-- Modify the remote_user in ansible.cfg file in /etc/ansible on the jumpbox to the user name used for the webservers and elk machine.
-- Update the Hosts file with two groups, one for elk, one for the webservers
-- Download the playbooks for the webservers, elk, elastic beat, and metric beat onto your ansible container.
-- Place the beats config files in /etc/ansible/files and update the beats configuration files to include the IP address of the Elk Server 
-- Run the playbooks, and navigate to <elk machine ip>:5601/app/kibana to check that the installation worked as expected.
-
-_TODO: Answer the following questions to fill in the blanks:_
-- _Which file is the playbook? Where do you copy it?_
-- _Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?_
-- _Which URL do you navigate to in order to check that the ELK server is running?
+- Create an SSH key in the ansible container and use it to update the SSH keys in Azure for the Web VMs and the ELK machine.
+- SSH into each of the web machines from the control node and add the IP addresses.
+- Modify the remote_user in ansible.cfg file in /etc/ansible on the jumpbox to the user name used for the webservers and ELK machine.
+- Update the Hosts file with two groups, one for ELK, one for the webservers
+- Download the playbooks for the webservers, ELK, elastic beat, and metric beat onto your ansible container.
+- Place the beats config files in /etc/ansible/files and update the beats configuration files to include the IP address of the ELK Server 
+- Run the playbooks, and navigate to <ELK machine ip>:5601/app/kibana to check that the installation worked as expected.
 
 _As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
