@@ -22,11 +22,11 @@ The main purpose of this network is to expose load-balanced and monitored instan
 
 Load balancing, the practice of using redundant machines run the same application and distribute connections based on current system load to ensure a high level of availability and a more responsive experience for users.  Azure Load balancers also allow inbound NAT rules to add the ability to restrict inbound traffic to the network.
 
-Configuration of the web servers and elk machine was accomplished from an ansible container running in docker on a jump box machine.  By creating a single secure access point from which to configure other machines on the network, we can more easily monitor connections to those machines.  By using a machine with limited or no access out to the public internet, rather than local administration on the managed machine we significantly reduce the likelihood of compromising an account with heighted administrative privileges.
+Configuration of the web servers and elk machine was accomplished from an ansible container running in docker on a jump box machine.  By creating a single secure access point, a jump box, from which to configure other machines on the network, we can more easily monitor connections to those machines.  By using a machine with limited or no access out to the public internet, rather than local administration on the managed machine we significantly reduce the likelihood of compromising an account with heighted administrative privileges.
 
-Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the _____ and system _____.
-- _TODO: What does Filebeat watch for?_
-- _TODO: What does Metricbeat record?_
+Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the server metrics and system files.
+
+Two beats were configured, filebeat to monitor changes to files on the monitored systems, and metricbeat to monitor changes to information from the operating system and services running on the monitored systems.
 
 The configuration details of each machine may be found below.
 
@@ -42,24 +42,21 @@ The configuration details of each machine may be found below.
 
 The machines on the internal network are not exposed to the public Internet. 
 
-Only the _____ machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
-- _TODO: Add whitelisted IP addresses_
+The elk machine and web servers can be reached on http from the internet but only through the public ip address of my home network.
 
-Machines within the network can only be accessed by _____.
-- _TODO: Which machine did you allow to access your ELK VM? What was its IP address?_
+Machines within the network can only be accessed by ssh from the Jump Box.
 
 A summary of the access policies in place can be found in the table below.
 
 | Name     | Publicly Accessible | Allowed IP Addresses |
 |----------|---------------------|----------------------|
-| Jump Box | Yes/No              | 10.0.0.1 10.0.0.2    |
-|          |                     |                      |
+| Jump Box | Yes              | home ip   |
+| Elk         |                     |                      |
 |          |                     |                      |
 
 ### Elk Configuration
 
-Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because...
-- _TODO: What is the main advantage of automating configuration with Ansible?_
+Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because we can ensure that all systems are set up consistently, and easily configure new machines in the future by making modifications only to the hosts configuration file in the ansible container.
 
 The playbook implements the following tasks:
 - _TODO: In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc._
@@ -75,10 +72,13 @@ The following screenshot displays the result of running `docker ps` after succes
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
-- _TODO: List the IP addresses of the machines you are monitoring_
+10.0.0.8
+10.0.0.9
+10.0.0.10
 
 We have installed the following Beats on these machines:
-- _TODO: Specify which Beats you successfully installed_
+metricbeat
+filebeat
 
 These Beats allow us to collect the following information from each machine:
 - _TODO: In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see. E.g., `Winlogbeat` collects Windows logs, which we use to track user logon events, etc._
