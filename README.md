@@ -5,6 +5,7 @@ The files in this repository were used to configure the network depicted below.
 <img src="https://github.com/Dshashek/ELK_Monitoring_Network_Diagram/blob/master/Images/network_diagram.png">
 
 The YAML
+
 The .yml files in the yml directory were used to deploy DVWA on web servers and ELK on a separate virtual network, all in Azure.  The initial setup of machines, network security groups, the load balancer, and virtual networks were set up through the Azure GUI on an Azure trail account.
 
 This document contains the following details:
@@ -20,13 +21,11 @@ This document contains the following details:
 
 The main purpose of this network is to expose load-balanced and monitored instances of DVWA, the D*mn Vulnerable Web Application.
 
-Load balancing, the practice of using redundant machines run the same application and distribute connections based on current system load to ensure a high level of availability and a more responsive experience for users.  Azure Load balancers also allow inbound NAT rules to add the ability to restrict inbound traffic to the network.
+Load balancing is the practice of using redundant machines run the same application and distribute connections based on current system load to ensure a high level of availability and a more responsive experience for users.  Azure Load balancers also allow inbound NAT rules to add the ability to restrict inbound traffic to the network.
 
-Configuration of the web servers and elk machine was accomplished from an ansible container running in docker on a jump box machine.  By creating a single secure access point, a jump box, from which to configure other machines on the network, we can more easily monitor connections to those machines.  By using a machine with limited or no access out to the public internet, rather than local administration on the managed machine we significantly reduce the likelihood of compromising an account with heighted administrative privileges.
+Configuration of the web servers and ELK machine was accomplished from an ansible container running in docker.  By creating a single secure access point, a jump box, from which to configure other machines on the network, we can more easily monitor connections to those machines.  Using a machine with limited or no access out to the public internet, rather than local administration on the managed machine we significantly reduce the likelihood of compromising an account with heighted administrative privileges.
 
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the server metrics and system files.
-
-Two beats were configured, filebeat to monitor changes to files on the monitored systems, and metricbeat to monitor changes to information from the operating system and services running on the monitored systems.
 
 The configuration details of each machine may be found below.
 
@@ -42,7 +41,7 @@ The configuration details of each machine may be found below.
 
 The machines on the internal network are not exposed to the public Internet. 
 
-The elk machine and web servers can be reached on http from the internet but only through the public ip address of my home network.
+The elk machine and web servers can be reached on http from the internet but only through the public ip address of my home system.
 
 Machines within the network can only be accessed by ssh from the Jump Box.
 
@@ -55,7 +54,7 @@ A summary of the access policies in place can be found in the table below.
 
 ### Elk Configuration
 
-Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because we can ensure that all systems are set up consistently, and easily configure new machines in the future by making modifications only to the hosts configuration file in the ansible container.
+Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because we can ensure that all systems are set up consistently, and we can easily configure new machines in the future by making modifications only to the hosts configuration file in the ansible container.
 
 The playbook implements the following tasks:
 - Uninstall apache2 so it does not conflict with docker
