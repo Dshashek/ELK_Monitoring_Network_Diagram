@@ -19,7 +19,7 @@ This document contains the following details:
 
 The main purpose of this network is to expose load-balanced and monitored instances of DVWA, the D*mn Vulnerable Web Application.
 
-This network was created with Azure, Microsoft's cloud computing service.  Two Virtual Networks were created.  In the first, we set up a Jump Box as well as three virtual machines were set up behind a load balancer.  In the second, we set up a single virtual machine to be used for monitoring of the three virtual machines in the other network.  We then created a peering between the two networks. 
+This network was created with Azure, Microsoft's cloud computing service.  Two Virtual Networks were created.  In the first, we set up a Jump Box as well as three virtual machines behind a load balancer.  In the second, we set up a single virtual machine to be used for monitoring of the three virtual machines in the other network.  We then created a peering between the two networks. 
 
 Load balancing is the practice of using redundant machines to run the same application and distribute connections based on current system load to ensure a high level of availability and a more responsive experience for users.  Azure Load balancers also allow inbound NAT rules which adds the ability to restrict inbound traffic to the network.
 
