@@ -6,7 +6,7 @@ The files in this repository were used to configure the network depicted below.
 
 The YAML
 
-The .yml files in the yml directory were used to deploy DVWA on web servers and ELK on a separate virtual network, all in Azure.  The initial setup of machines, network security groups, the load balancer, and virtual networks were set up through the Azure GUI on an Azure trail account.
+The .yml files in the yml directory were used to deploy DVWA on web servers and ELK on a separate virtual network, all in Azure.  The initial setup of machines, network security groups, the load balancer, and virtual networks were set up through the Azure GUI on an Azure trial account.
 
 This document contains the following details:
 - Description of the Topology
@@ -23,7 +23,7 @@ The main purpose of this network is to expose load-balanced and monitored instan
 
 Load balancing is the practice of using redundant machines run the same application and distribute connections based on current system load to ensure a high level of availability and a more responsive experience for users.  Azure Load balancers also allow inbound NAT rules to add the ability to restrict inbound traffic to the network.
 
-Configuration of the web servers and ELK machine was accomplished from an ansible container running in docker.  By creating a single secure access point, a jump box, from which to configure other machines on the network, we can more easily monitor connections to those machines.  Using a machine with limited or no access out to the public internet, rather than local administration on the managed machine we significantly reduce the likelihood of compromising an account with heighted administrative privileges.
+Configuration of the web servers and ELK machine was accomplished from an ansible container running in docker.  By creating a single secure access point, a jump box, from which to configure other machines on the network, we can more easily monitor connections to those machines.  By using a machine with limited or no access out to the public internet, rather than local administration on the managed machine, we significantly reduce the likelihood of compromising an account with heighted administrative privileges.
 
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the server metrics and system files.
 
@@ -39,15 +39,7 @@ The configuration details of each machine may be found below.
 
 ### Access Policies
 
-The machines on the internal network are not exposed to the public Internet. 
-
-The elk machine and web servers can be reached on http from the internet but only through the public ip address of my home system.
-
-Machines within the network can only be accessed by ssh from the Jump Box.
-
 A summary of the access policies in place can be found in the table below.
-
-
 
 |**Red Team NSG**| | | | |
 |:-------------:|:-----------:|:--------------:|:----:|:--------:|
@@ -105,5 +97,3 @@ SSH into the control node and follow the steps below:
 - Download the playbooks for the webservers, ELK, elastic beat, and metric beat onto your ansible container.
 - Place the beats config files in /etc/ansible/files and update the beats configuration files to include the IP address of the ELK Server 
 - Run the playbooks, and navigate to <ELK machine ip>:5601/app/kibana to check that the installation worked as expected.
-
-_As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
