@@ -52,7 +52,7 @@ A summary of the access policies in place can be found in the table below.
 | Red Team NSG | No              | home ip   |
 | Elk NSG      | No                    | home ip/10.0.0.4                     |
 
-|Red Team NSG |
+|Red Team NSG| | | |
 |-------------|-----------|--------------|----|
 |Name|Ports|Protocol|Source|Destination
 |allow_ssh| Port 22 | TCP | Source: home IP |
