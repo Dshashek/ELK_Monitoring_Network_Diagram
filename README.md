@@ -1,12 +1,10 @@
 ## Automated ELK Stack Deployment
 
-The files in the yml and configuration directories were used to configure the network depicted below.
+The files in the yml_files and config_files directories were used to configure the network depicted below.
 
 <img src="https://github.com/Dshashek/ELK_Monitoring_Network_Diagram/blob/master/Images/network_diagram.png">
 
 The YAML
-
-The files in the yml_files and config_files directories were used to deploy DVWA on web servers and ELK machine to monitor them on a separate virtual network.
 
 This document contains the following details:
 - Description of the Topology
