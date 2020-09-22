@@ -75,17 +75,11 @@ This ELK server is configured to monitor the following machines:
 
 We have installed the following Beats on these machines:
 
-metricbeat
+Filebeat will allow us to specify specific files to monitor and will log changes to those files.  This could be used to collect new lines from log files or to monitor changes to important system files like /etc/shadow.
 
-filebeat
+Metricbeat will allow us to specify specific information about services and programs running on the monitored machines.  For instance, you could use filebeat to monitor the CPU load, or the available drive space on monitored machines.
 
-These Beats allow us to collect the following information from each machine:
-
-Filebeat will allow you to specify specific files to monitor and will log changes to those files.  This could be used to collect new lines from log files or to monitor changes to important system files like /etc/shadow.
-
-Metricbeat will allow you to specify specific information about services and programs running on the monitored machines.  For instance, you could use filebeat to monitor the CPU load, or the available drive space on monitored machines.
-
-### Using the Playbook
+### Using the Playbooks
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned and the machinese are set up properly in Azure: 
 
 SSH into the control node and follow the steps below:
