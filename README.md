@@ -1,12 +1,12 @@
 ## Automated ELK Stack Deployment
 
-The files in this repository were used to configure the network depicted below.
+The files in the yml and configuration directories were used to configure the network depicted below.
 
 <img src="https://github.com/Dshashek/ELK_Monitoring_Network_Diagram/blob/master/Images/network_diagram.png">
 
 The YAML
 
-The .yml files in the yml directory were used to deploy DVWA on web servers and ELK on a separate virtual network, all in Azure.  The initial setup of machines, network security groups, the load balancer, and virtual networks were set up through the Azure GUI on an Azure trial account.
+The files in the yml_files and config_files directories were used to deploy DVWA on web servers and ELK machine to monitor them on a separate virtual network.
 
 This document contains the following details:
 - Description of the Topology
@@ -21,7 +21,9 @@ This document contains the following details:
 
 The main purpose of this network is to expose load-balanced and monitored instances of DVWA, the D*mn Vulnerable Web Application.
 
-Load balancing is the practice of using redundant machines run the same application and distribute connections based on current system load to ensure a high level of availability and a more responsive experience for users.  Azure Load balancers also allow inbound NAT rules to add the ability to restrict inbound traffic to the network.
+This network was created with Azure, Microsoft's cloud computing service.  Two Virtual Networks were created.  In the first, we set up a Jump Box as well as three virtual machines were set up behind a load balancer.  In the second, we set up a single virtual machine to be used for monitoring of the three virtual machines in the other network.  We then created a peering between the two networks. 
+
+Load balancing is the practice of using redundant machines to run the same application and distribute connections based on current system load to ensure a high level of availability and a more responsive experience for users.  Azure Load balancers also allow inbound NAT rules which adds the ability to restrict inbound traffic to the network.
 
 Configuration of the web servers and ELK machine was accomplished from an ansible container running in docker.  By creating a single secure access point, a jump box, from which to configure other machines on the network, we can more easily monitor connections to those machines.  By using a machine with limited or no access out to the public internet, rather than local administration on the managed machine, we significantly reduce the likelihood of compromising an account with heighted administrative privileges.
 
@@ -68,7 +70,7 @@ The following screenshot displays the result of running `docker ps` after succes
 
 
 ### Target Machines & Beats
-This ELK server is configured to monitor the following machines:
+This ELK server is configured to monitor the following webservers:
 10.0.0.8
 10.0.0.9
 10.0.0.10
