@@ -49,7 +49,7 @@ A summary of the access policies in place can be found in the table below.
 |**ELK Server NSG**| | | | |
 |Name|Ports|Protocol|Source|Destination|
 |ssh_from_jumpbox         | 22 | TCP | Home IP | 10.0.0.4|
-|access_from_home         | 80 | TCP | Jumpbox Public IP | 10.1.0.4 |
+|access_from_home         | 80 | TCP | Jump Box Public IP | 10.1.0.4 |
 
 ### Elk Configuration
 
@@ -60,7 +60,7 @@ The playbook implements the following tasks:
 - Install pip3 package manager to download python packages
 - Install Python docker module
 - Start Docker service, increase virtual memory on ELK machine
-- Download and launch the ELK docker contianer
+- Download and launch the ELK docker container
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
@@ -80,13 +80,13 @@ Filebeat will allow us to specify specific files to monitor and will log changes
 Metricbeat will allow us to specify specific information about services and programs running on the monitored machines.  For instance, you could use filebeat to monitor the CPU load, or the available drive space on monitored machines.
 
 ### Using the Playbooks
-In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned and the machinese are set up properly in Azure: 
+In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned and the machines are set up properly in Azure: 
 
 SSH into the control node and follow the steps below:
 - Create an SSH key in the ansible container and use it to update the SSH keys in Azure for the Web VMs and the ELK machine.
 - SSH into each of the web machines from the control node and add the IP addresses.
-- Modify the remote_user in ansible.cfg file in /etc/ansible on the jumpbox to the user name used for the webservers and ELK machine.
+- Modify the remote_user in ansible.cfg file in /etc/ansible on the jump box to the username used for the webservers and ELK machine.
 - Update the Hosts file with two groups, one for ELK, one for the webservers
 - Download the playbooks for the webservers, ELK, elastic beat, and metric beat onto your ansible container.
 - Place the beats config files in /etc/ansible/files and update the beats configuration files to include the IP address of the ELK Server 
-- Run the playbooks, and navigate to <ELK machine ip>:5601/app/kibana to check that the installation worked as expected.
+- Run the playbooks and navigate to <ELK machine ip>:5601/app/kibana to check that the installation worked as expected.
