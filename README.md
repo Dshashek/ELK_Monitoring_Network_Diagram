@@ -56,8 +56,8 @@ A summary of the access policies in place can be found in the table below.
 |ELK Server NSG| | | | |
 |-------------|-----------|--------------|----|------------|
 |Name|Ports|Protocol|Source|Destination|
-|ssh_from_jumpbox| 22 | TCP | Source: home IP | 10.0.0.4|
-|access_from_home| 80 | TCP | Jumpbox Public IP | 10.1.0.4 |
+|ssh_from_jumpbox         | 22 | TCP | Source: home IP | 10.0.0.4|
+|access_from_home         | 80 | TCP | Jumpbox Public IP | 10.1.0.4 |
 
 ### Elk Configuration
 
