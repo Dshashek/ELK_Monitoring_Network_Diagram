@@ -52,6 +52,13 @@ A summary of the access policies in place can be found in the table below.
 | Red Team NSG | No              | home ip   |
 | Elk NSG      | No                    | home ip/10.0.0.4                     |
 
+|Red Team NSG |
+|-------------|-----------|--------------|----|
+|Name|Ports|Protocol|Source|Destination
+|allow_ssh| Port 22 | TCP | Source: home IP |
+|allow_http_to_lb_from_home | TCP | Virtual Network |
+
+
 ### Elk Configuration
 
 Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because we can ensure that all systems are set up consistently, and we can easily configure new machines in the future by making modifications only to the hosts configuration file in the ansible container.
